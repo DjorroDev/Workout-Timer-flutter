@@ -46,20 +46,22 @@ class _MyHomePageState extends State<MyHomePage> {
         contentPadding: const EdgeInsets.symmetric(vertical: 0),
       ),
       onChanged: (text) {
+        var num = int.parse(text);
         if (isSets) {
           setState(() {
-            sets = int.parse(text);
+            sets = num;
           });
         }
         if (isTimer) {
-          setState(() {
-            maxSeconds = int.parse(text);
-            seconds = maxSeconds;
-          });
+          if (num != 0)
+            setState(() {
+              maxSeconds = num;
+              seconds = maxSeconds;
+            });
         }
         if (isRestTime) {
           setState(() {
-            maxRestSeconds = int.parse(text);
+            maxRestSeconds = num;
           });
         }
       },
