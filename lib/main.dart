@@ -139,85 +139,82 @@ class _MyHomePageState extends State<MyHomePage> {
             SliverFillRemaining(
               hasScrollBody: false,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SizedBox(
-                    height: 50,
-                  ),
-                  buildTimer(),
-                  SizedBox(
-                    height: 45,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        children: [
-                          Icon(Icons.accessibility_new),
-                          Text('$maxSeconds secs'),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Icon(Icons.timelapse),
-                          Text('$maxRestSeconds secs'),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Icon(Icons.history),
-                          Text('$restCount'),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Expanded(
-                      child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white10,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(30),
-                          topLeft: Radius.circular(30)),
-                    ),
-                    child: Column(
+                  Flexible(flex: 6, child: buildTimer()),
+                  Flexible(
+                    flex: 1,
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        Column(
                           children: [
-                            Column(
-                              children: [
-                                Text('Work:'),
-                                SizedBox(
-                                    width: 35,
-                                    child: insertNumber(isTimer: true)),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                Text('Rest:'),
-                                SizedBox(
-                                    width: 35,
-                                    child: insertNumber(isRestTime: true)),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                Text('Sets:'),
-                                SizedBox(
-                                    width: 35,
-                                    child: insertNumber(isSets: true)),
-                              ],
-                            ),
+                            Icon(Icons.accessibility_new),
+                            Text('$maxSeconds secs'),
                           ],
                         ),
-                        toggleButton(),
+                        Column(
+                          children: [
+                            Icon(Icons.timelapse),
+                            Text('$maxRestSeconds secs'),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(Icons.history),
+                            Text('$restCount'),
+                          ],
+                        ),
                       ],
                     ),
-                  )),
+                  ),
+                  Flexible(
+                      flex: 3,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white10,
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(30),
+                              topLeft: Radius.circular(30),
+                              bottomRight: Radius.circular(30),
+                              bottomLeft: Radius.circular(30)),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  children: [
+                                    Text('Work:'),
+                                    SizedBox(
+                                        width: 35,
+                                        child: insertNumber(isTimer: true)),
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text('Rest:'),
+                                    SizedBox(
+                                        width: 35,
+                                        child: insertNumber(isRestTime: true)),
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text('Sets:'),
+                                    SizedBox(
+                                        width: 35,
+                                        child: insertNumber(isSets: true)),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            toggleButton(),
+                          ],
+                        ),
+                      )),
                 ],
               ),
             )
